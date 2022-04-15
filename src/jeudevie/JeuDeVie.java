@@ -5,7 +5,9 @@
  */
 package jeudevie;
 
+import Controller.PlaceCellController;
 import Modele.Cell;
+import Modele.Plateau;
 import Modele.Tray;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -23,15 +25,18 @@ public class JeuDeVie extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Cell c= new Cell(false, 5);
-        Tray t = new Tray(200, 3);
-        Button  b = new Button();
-        b.addEventHandler(ActionEvent.ANY, (ActionEvent e) -> {
-            t.changeState();
+        Cell c= new Cell(10);
+        Plateau t = new Plateau(5, c);
+        PlaceCellController pcc = new PlaceCellController(c, t);
+        Button  startb = new Button();
+        startb.addEventHandler(ActionEvent.ANY, (ActionEvent e) -> {
+            t.execute();
+            System.out.println(t.getExecute());
             });
         
+        
         StackPane root = new StackPane();
-        root.getChildren().addAll(t, b);
+        root.getChildren().addAll(t, startb);
         
         Scene scene = new Scene(root, 300, 250);
         

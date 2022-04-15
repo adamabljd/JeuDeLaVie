@@ -46,7 +46,7 @@ public class Tray extends GridPane{
         for(int i = 0; i < this.n; i++){
             for(int j = 0; j < this.n; j++){
                 this.boolarr[i][j] = false;
-                Cell c = new Cell(this.boolarr[i][j], 10); 
+                Cell c = new Cell( 10); 
                 this.cellArr[i][j] = c;
                 this.add(cellArr[i][j], i, j);
             }
@@ -57,7 +57,7 @@ public class Tray extends GridPane{
         for(int i = 0; i < this.n; i++){
             for(int j = 0; j < this.n; j++){
                 this.boolarr[i][j] = random.nextBoolean();
-                Cell c = new Cell(this.boolarr[i][j], 10); 
+                Cell c = new Cell( 10); 
                 this.cellArr[i][j] = c;
                 this.add(cellArr[i][j], i, j);
             }

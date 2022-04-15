@@ -17,25 +17,25 @@ import javafx.scene.shape.Rectangle;
 public class Cell extends Rectangle{
     private int size;
     private boolean state;
-    BooleanProperty stateprop;
     private Color defaultColor = Color.WHITE;
     private Color aliveColor = Color.RED;
     
     //5tara3er carre, ela state ya alive ya dead( true or false), w3 anda taille bhes 10 azbat chi, 
     //iza alive lawna ahmar, iza dead abyad bas hl2 hateta azra2 la yen2acha3 bel test.
-    public Cell(boolean state, int size){
+    public Cell(int size){
         super();
-        stateprop = new SimpleBooleanProperty(state);
         
         this.size = size;
-        this.state = state;
         this.setWidth(size);
         this.setHeight(size);
+        
         if(state == true){
             this.setFill(aliveColor);
         }else if(state == false){
             this.setFill(defaultColor);
         }
+        
+        
     }
     
     public void setSize(int newN){
@@ -61,5 +61,15 @@ public class Cell extends Rectangle{
             this.setFill(defaultColor);
         } 
     }
+    
+    public void naissance(){
+		this.setState(true);
+                this.changeColor();
+	}
+	
+	public void deces(){
+		this.setState(false);
+                this.changeColor();
+	}
     
 }
